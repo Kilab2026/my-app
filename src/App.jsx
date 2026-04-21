@@ -1,3 +1,5 @@
+<h1>Hello CI/CD Test</h1>
+<h1>CI/CD funktioniert 🚀</h1>
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
