@@ -1,20 +1,66 @@
 function App() {
   return (
-    <div style={{padding:"40px", fontFamily:"Arial"}}>
-      <h1>CI/CD funktioniert 🚀</h1>
+    <div style={{ padding: "40px", fontFamily: "Arial", maxWidth: "900px", margin: "auto" }}>
+      
+      <h1>Kilab Abrechnung</h1>
 
-      <p>Willkommen bei Kilab Abrechnung.</p>
+      <p>
+        Digitale Abrechnungssoftware für einfache und effiziente Verwaltung.
+      </p>
+
+      <button style={{
+        padding: "12px 24px",
+        fontSize: "18px",
+        marginTop: "20px"
+      }}>
+        30 Tage kostenlos testen
+      </button>
 
       <hr />
 
-      <h2>Impressum</h2>
+      <h2>Leistungen / Funktionen</h2>
+
+      <h3>Abrechnungsverwaltung</h3>
+      <p>
+        Rechnungen erstellen, verwalten und exportieren.
+      </p>
+
+      <h3>Kundenverwaltung</h3>
+      <p>
+        Kundendaten sicher und übersichtlich organisieren.
+      </p>
+
+      <h3>Automatisierung</h3>
+      <p>
+        Wiederkehrende Prozesse automatisieren und Zeit sparen.
+      </p>
+
+      <h3>Auswertungen</h3>
+      <p>
+        Berichte und Statistiken auf einen Blick.
+      </p>
+
+      <hr />
+
+      <h2>Preise</h2>
+
+      <p>
+        <strong>30 Tage kostenlose Testversion</strong>
+      </p>
+
+      <p>
+        Danach z.B. 29 € monatlich (Platzhalter — später anpassen)
+      </p>
+
+      <hr />
+
+      <h2>Kontakt</h2>
 
       <p>
         Nancy Krull<br />
         Alltagsflitzer<br />
         August-Bebel-Str. 24<br />
-        23936 Grevesmühlen<br />
-        Deutschland
+        23936 Grevesmühlen
       </p>
 
       <p>
@@ -22,32 +68,26 @@ function App() {
         E-Mail: alltagsflitzer@hotmail.com
       </p>
 
+      <hr />
+
+      <h2>Impressum</h2>
+
       <p>
         USt-ID: 080/241/00112
       </p>
+
       <hr />
 
-<h2>Datenschutzerklärung</h2>
+      <h2>Datenschutzerklärung</h2>
 
-<p>
-Beim Besuch dieser Website werden durch den Webserver automatisch
-technische Informationen (z.B. IP-Adresse, Datum/Uhrzeit, Browsertyp)
-in sogenannten Server-Logfiles verarbeitet.
-</p>
+      <p>
+        Beim Besuch dieser Website werden technisch notwendige Server-Logfiles verarbeitet.
+      </p>
 
-<p>
-Diese Verarbeitung erfolgt zur technischen Bereitstellung,
-Stabilität und Sicherheit der Website.
-</p>
+      <p>
+        Es werden derzeit keine Tracking- oder Analyse-Tools eingesetzt.
+      </p>
 
-<p>
-Es werden derzeit keine Analyse- oder Tracking-Tools eingesetzt.
-</p>
-
-<p>
-Verantwortlich für die Datenverarbeitung:
-Nancy Krull
-</p>
     </div>
   );
 }
