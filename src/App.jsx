@@ -25,6 +25,29 @@ function App() {
       <p>
         USt-ID: 080/241/00112
       </p>
+      <hr />
+
+<h2>Datenschutzerklärung</h2>
+
+<p>
+Beim Besuch dieser Website werden durch den Webserver automatisch
+technische Informationen (z.B. IP-Adresse, Datum/Uhrzeit, Browsertyp)
+in sogenannten Server-Logfiles verarbeitet.
+</p>
+
+<p>
+Diese Verarbeitung erfolgt zur technischen Bereitstellung,
+Stabilität und Sicherheit der Website.
+</p>
+
+<p>
+Es werden derzeit keine Analyse- oder Tracking-Tools eingesetzt.
+</p>
+
+<p>
+Verantwortlich für die Datenverarbeitung:
+Nancy Krull
+</p>
     </div>
   );
 }
