@@ -1,6 +1,3 @@
-Ersetze den kompletten Inhalt von `src/App.jsx` mit diesem Code (und setze deine drei EmailJS-Werte ein):
-
-```jsx
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
