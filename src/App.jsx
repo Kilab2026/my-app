@@ -1,95 +1,146 @@
 function App() {
   return (
-    <div style={{ padding: "40px", fontFamily: "Arial", maxWidth: "900px", margin: "auto" }}>
-      
-      <h1>Kilab Abrechnung</h1>
+    <div style={{
+      fontFamily: "Arial",
+      backgroundColor:"#f7f9fc",
+      padding:"40px"
+    }}>
 
-      <p>
-        Digitale Abrechnungssoftware für einfache und effiziente Verwaltung.
-      </p>
-
-      <button style={{
-        padding: "12px 24px",
-        fontSize: "18px",
-        marginTop: "20px"
+      <div style={{
+        maxWidth:"1000px",
+        margin:"auto"
       }}>
-        30 Tage kostenlos testen
-      </button>
 
-      <hr />
+        {/* Hero */}
+        <section style={{
+          textAlign:"center",
+          padding:"70px 20px"
+        }}>
+          <h1 style={{fontSize:"52px"}}>
+            Kilab Abrechnung
+          </h1>
 
-      <h2>Leistungen / Funktionen</h2>
+          <p style={{
+            fontSize:"22px",
+            maxWidth:"700px",
+            margin:"auto"
+          }}>
+            Digitale Abrechnungssoftware für effiziente,
+            sichere und moderne Verwaltung.
+          </p>
 
-      <h3>Abrechnungsverwaltung</h3>
-      <p>
-        Rechnungen erstellen, verwalten und exportieren.
-      </p>
+          <button style={{
+            marginTop:"30px",
+            padding:"18px 35px",
+            fontSize:"20px",
+            borderRadius:"12px",
+            border:"none",
+            cursor:"pointer"
+          }}>
+            30 Tage kostenlos testen
+          </button>
+        </section>
 
-      <h3>Kundenverwaltung</h3>
-      <p>
-        Kundendaten sicher und übersichtlich organisieren.
-      </p>
 
-      <h3>Automatisierung</h3>
-      <p>
-        Wiederkehrende Prozesse automatisieren und Zeit sparen.
-      </p>
+        {/* Funktionen */}
+        <h2 style={{textAlign:"center"}}>
+          Funktionen
+        </h2>
 
-      <h3>Auswertungen</h3>
-      <p>
-        Berichte und Statistiken auf einen Blick.
-      </p>
+        <div style={{
+          display:"flex",
+          gap:"25px",
+          flexWrap:"wrap",
+          justifyContent:"center",
+          marginTop:"40px"
+        }}>
 
-      <hr />
+          <div style={cardStyle}>
+            <h3>Abrechnungsverwaltung</h3>
+            <p>Rechnungen erstellen und verwalten.</p>
+          </div>
 
-      <h2>Preise</h2>
+          <div style={cardStyle}>
+            <h3>Automatisierung</h3>
+            <p>Prozesse vereinfachen und Zeit sparen.</p>
+          </div>
 
-      <p>
-        <strong>30 Tage kostenlose Testversion</strong>
-      </p>
+          <div style={cardStyle}>
+            <h3>Auswertungen</h3>
+            <p>Berichte und Statistiken auf einen Blick.</p>
+          </div>
 
-      <p>
-        Danach z.B. 29 € monatlich (Platzhalter — später anpassen)
-      </p>
+        </div>
 
-      <hr />
 
-      <h2>Kontakt</h2>
+        {/* Preise */}
+        <section style={{
+          marginTop:"70px",
+          textAlign:"center"
+        }}>
+          <h2>Preise</h2>
 
-      <p>
-        Nancy Krull<br />
-        Alltagsflitzer<br />
-        August-Bebel-Str. 24<br />
-        23936 Grevesmühlen
-      </p>
+          <div style={{
+            background:"white",
+            padding:"35px",
+            borderRadius:"20px",
+            maxWidth:"450px",
+            margin:"auto"
+          }}>
+            <h3>30 Tage kostenlos testen</h3>
 
-      <p>
-        Telefon: 015901271882<br />
-        E-Mail: alltagsflitzer@hotmail.com
-      </p>
+            <p>Danach z.B. 29 € monatlich</p>
+          </div>
+        </section>
 
-      <hr />
 
-      <h2>Impressum</h2>
+        {/* Kontakt */}
+        <section style={{
+          marginTop:"70px",
+          textAlign:"center"
+        }}>
+          <h2>Kontakt</h2>
 
-      <p>
-        USt-ID: 080/241/00112
-      </p>
+          <p>
+            Nancy Krull<br/>
+            Alltagsflitzer<br/>
+            August-Bebel-Str. 24<br/>
+            23936 Grevesmühlen
+          </p>
 
-      <hr />
+          <p>
+            015901271882<br/>
+            alltagsflitzer@hotmail.com
+          </p>
+        </section>
 
-      <h2>Datenschutzerklärung</h2>
 
-      <p>
-        Beim Besuch dieser Website werden technisch notwendige Server-Logfiles verarbeitet.
-      </p>
+        {/* Footer */}
+        <footer style={{
+          marginTop:"80px",
+          textAlign:"center",
+          paddingTop:"30px",
+          borderTop:"1px solid #ccc"
+        }}>
+          <p>
+            Impressum | Datenschutz
+          </p>
 
-      <p>
-        Es werden derzeit keine Tracking- oder Analyse-Tools eingesetzt.
-      </p>
+          <p>
+            USt-ID: 080/241/00112
+          </p>
+        </footer>
 
+      </div>
     </div>
   );
+}
+
+const cardStyle = {
+  background:"white",
+  padding:"30px",
+  width:"260px",
+  borderRadius:"18px"
 }
 
 export default App;
