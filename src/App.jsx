@@ -1,4 +1,8 @@
-import React from "react";
+Ersetze den kompletten Inhalt von `src/App.jsx` mit diesem Code (und setze deine drei EmailJS-Werte ein):
+
+```jsx
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const card = {
   background:"white",
@@ -17,6 +21,28 @@ const field = {
 };
 
 function App() {
+
+const form = useRef();
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    'Service-x59myr9',
+    'template-walkzkh',
+    form.current,
+    '9XPoXOhrpZuJA4Rk7Psk4'
+  ).then(
+    () => {
+      alert("Anfrage erfolgreich gesendet!");
+      e.target.reset();
+    },
+    () => {
+      alert("Fehler beim Versand.");
+    }
+  );
+};
+
 return (
 <div style={{
 fontFamily:"Arial",
@@ -104,29 +130,36 @@ textAlign:"center"
 }}>
 <h2>Testversion anfragen</h2>
 
-<div style={{
+<form
+ref={form}
+onSubmit={sendEmail}
+style={{
 background:"white",
 padding:"35px",
 borderRadius:"20px",
 maxWidth:"500px",
 margin:"auto"
-}}>
-<input placeholder="Name" style={field}/>
-<input placeholder="E-Mail" style={field}/>
-<input placeholder="Firma (optional)" style={field}/>
-<textarea placeholder="Nachricht" style={field}></textarea>
+}}
+>
+<input name="name" placeholder="Name" style={field}/>
+<input name="email" placeholder="E-Mail" style={field}/>
+<input name="company" placeholder="Firma (optional)" style={field}/>
+<textarea name="message" placeholder="Nachricht" style={field}></textarea>
 
-<button style={{
+<button
+type="submit"
+style={{
 marginTop:"20px",
 padding:"15px 30px",
 borderRadius:"12px",
 border:"none",
 cursor:"pointer"
-}}>
+}}
+>
 Testzugang anfragen
 </button>
 
-</div>
+</form>
 </section>
 
 
