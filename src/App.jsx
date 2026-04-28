@@ -1,5 +1,6 @@
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
+console.log("ICH BIN DIE RICHTIGE APP");
 
 const card = {
   background:"white",
@@ -23,6 +24,7 @@ const [showDemo, setShowDemo] = useState(false);
 console.log("showDemo:", showDemo);
 const [demoLoggedIn, setDemoLoggedIn] = useState(false);
 const [demoPage, setDemoPage] = useState("dashboard");
+const [showInvoicePopup, setShowInvoicePopup] = useState(false);
 if (showDemo) {
   if (!demoLoggedIn) {
 return (
@@ -157,6 +159,17 @@ borderRadius:"8px"
 
 <button onClick={()=>setShowDemo(false)}>
 Zurück zur Website
+<button
+style={{
+marginLeft:"15px",
+padding:"10px 20px",
+borderRadius:"8px",
+border:"none"
+}}
+onClick={()=>setShowDemo(false)}
+>
+Jetzt Testzugang anfragen
+</button>
 </button>
 </div>
 
@@ -256,6 +269,7 @@ borderCollapse:"collapse"
 </table>
 
 <button
+onClick={()=>setShowInvoicePopup(true)}
 style={{
 marginTop:"25px",
 padding:"12px 24px",
@@ -279,6 +293,51 @@ cursor:"pointer"
 📄 PDF Export
 </button>
 
+{showInvoicePopup && (
+<div style={{
+position:"fixed",
+top:"50%",
+left:"50%",
+transform:"translate(-50%,-50%)",
+background:"white",
+padding:"40px",
+borderRadius:"20px",
+boxShadow:"0 0 20px rgba(0,0,0,0.2)",
+zIndex:9999
+}}>
+
+<button
+onClick={()=>setShowInvoicePopup(false)}
+style={{
+float:"right",
+border:"none",
+background:"transparent",
+fontSize:"20px",
+cursor:"pointer"
+}}
+>
+✕
+</button>
+
+<h3>Neue Rechnung anlegen</h3>
+
+<input placeholder="Kunde" style={field}/>
+<input placeholder="Betrag" style={field}/>
+
+<button
+onClick={()=>{
+alert("Demo-Rechnung erstellt");
+setShowInvoicePopup(false);
+}}
+style={{
+marginTop:"20px"
+}}
+>
+Speichern
+</button>
+
+</div>
+)}
 </div>
 )}
 
