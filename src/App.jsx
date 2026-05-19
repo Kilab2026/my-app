@@ -25,6 +25,35 @@ console.log("showDemo:", showDemo);
 const [demoLoggedIn, setDemoLoggedIn] = useState(false);
 const [demoPage, setDemoPage] = useState("dashboard");
 const [showInvoicePopup, setShowInvoicePopup] = useState(false);
+const [invoiceCustomer, setInvoiceCustomer] = useState("");
+const [invoiceAmount, setInvoiceAmount] = useState("");
+
+const [invoices, setInvoices] = useState([
+ {kunde:"Pflegedienst Nord", betrag:"1.250 €", status:"Offen"},
+ {kunde:"Sozialhilfe West", betrag:"980 €", status:"Bezahlt"},
+ {kunde:"Betreuung Müller", betrag:"1.780 €", status:"In Prüfung"}
+]);
+
+const sendEmail = (e) => {
+e.preventDefault();
+
+emailjs.sendForm(
+'service_ovi1757',
+'template_walkzkh',
+form.current,
+'ft3xOTq8ha2JgKH0i'
+).then(
+() => {
+alert("Anfrage erfolgreich gesendet!");
+e.target.reset();
+},
+(error) => {
+console.log(error);
+alert("Fehler: " + error.text);
+}
+);
+};
+
 if (showDemo) {
   if (!demoLoggedIn) {
 return (
@@ -154,11 +183,20 @@ borderRadius:"8px"
 
 <div style={{flex:1,padding:"40px"}}>
 
+</div>
+
 <div style={{display:"flex",justifyContent:"space-between"}}>
+
 <h1>Kilab Demo Dashboard</h1>
 
-<button onClick={()=>setShowDemo(false)}>
+<div>
+
+<button
+onClick={()=>setShowDemo(false)}
+>
 Zurück zur Website
+</button>
+
 <button
 style={{
 marginLeft:"15px",
@@ -170,7 +208,7 @@ onClick={()=>setShowDemo(false)}
 >
 Jetzt Testzugang anfragen
 </button>
-</button>
+
 </div>
 
 <div style={{
@@ -178,7 +216,8 @@ display:"flex",
 gap:"25px",
 marginTop:"40px",
 flexWrap:"wrap"
-}}>
+}}
+>
 
 <div style={{background:"white",padding:"30px",borderRadius:"20px",width:"260px"}}>
 <h2>Offene Abrechnungen</h2>
@@ -242,29 +281,25 @@ marginTop:"20px",
 borderCollapse:"collapse"
 }}>
 
+<tbody>
+
 <tr>
 <th style={{textAlign:"left",padding:"12px"}}>Kunde</th>
 <th style={{textAlign:"left",padding:"12px"}}>Betrag</th>
 <th style={{textAlign:"left",padding:"12px"}}>Status</th>
 </tr>
 
-<tr>
-<td style={{padding:"12px"}}>Pflegedienst Nord</td>
-<td style={{padding:"12px"}}>1.250 €</td>
-<td style={{padding:"12px"}}>Offen</td>
+{invoices.map((rechnung,index)=>(
+
+<tr key={index}>
+<td style={{padding:"12px"}}>{rechnung.kunde}</td>
+<td style={{padding:"12px"}}>{rechnung.betrag}</td>
+<td style={{padding:"12px"}}>{rechnung.status}</td>
 </tr>
 
-<tr>
-<td style={{padding:"12px"}}>Sozialhilfe West</td>
-<td style={{padding:"12px"}}>980 €</td>
-<td style={{padding:"12px"}}>Bezahlt</td>
-</tr>
+))}
 
-<tr>
-<td style={{padding:"12px"}}>Betreuung Müller</td>
-<td style={{padding:"12px"}}>1.780 €</td>
-<td style={{padding:"12px"}}>In Prüfung</td>
-</tr>
+</tbody>
 
 </table>
 
@@ -280,6 +315,7 @@ cursor:"pointer"
 >
 + Neue Rechnung
 </button>
+
 <button
 onClick={() => alert("PDF Export Demo gestartet")}
 style={{
@@ -321,13 +357,38 @@ cursor:"pointer"
 
 <h3>Neue Rechnung anlegen</h3>
 
-<input placeholder="Kunde" style={field}/>
-<input placeholder="Betrag" style={field}/>
+<input
+placeholder="Kunde"
+value={invoiceCustomer}
+onChange={(e)=>setInvoiceCustomer(e.target.value)}
+style={field}
+/>
+
+<input
+placeholder="Betrag"
+value={invoiceAmount}
+onChange={(e)=>setInvoiceAmount(e.target.value)}
+style={field}
+/>
 
 <button
 onClick={()=>{
-alert("Demo-Rechnung erstellt");
+
+if(!invoiceCustomer || !invoiceAmount) return;
+
+setInvoices([
+...invoices,
+{
+kunde: invoiceCustomer,
+betrag: invoiceAmount + " €",
+status:"Neu"
+}
+]);
+
+setInvoiceCustomer("");
+setInvoiceAmount("");
 setShowInvoicePopup(false);
+
 }}
 style={{
 marginTop:"20px"
@@ -385,26 +446,6 @@ Monatsumsatz aktuell: 12.480 €
 </div>
 );
 }
-
-const sendEmail = (e) => {
-e.preventDefault();
-
-emailjs.sendForm(
-'service_ovi1757',
-'template_walkzkh',
-form.current,
-'ft3xOTq8ha2JgKH0i'
-).then(
-() => {
-alert("Anfrage erfolgreich gesendet!");
-e.target.reset();
-},
-(error) => {
-console.log(error);
-alert("Fehler: " + error.text);
-}
-);
-};
 
 return (
 <div style={{fontFamily:"Arial",backgroundColor:"#f7f9fc",padding:"40px"}}>
